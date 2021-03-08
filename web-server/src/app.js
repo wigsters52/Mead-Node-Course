@@ -5,8 +5,8 @@ const geoCode = require('./utlis/geocode')
 const forecast = require('./utlis/forecast')
 
 const app = express()
-
-// Define paths
+const port = process.env.PORT || 3000
+    // Define paths
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
@@ -95,8 +95,10 @@ app.get('*', (req, res) => {
         helpText: 'Page not found!'
     })
 })
-app.listen(3000, () => {
-    console.log('Server is up and running')
+
+app.listen(port, () => {
+    console.log(`Server is up and running on port: 
+        ${port}`)
 })
 
 module.exports = app
